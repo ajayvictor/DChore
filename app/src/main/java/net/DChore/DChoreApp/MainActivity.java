@@ -21,7 +21,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText editTextUsername, editTextEmail, editTextPassword;
+    EditText editTextUsername, editTextEmail, editTextPassword, editTextLocation;
     RadioGroup radioGroupGender;
             
 
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         editTextUsername = (EditText) findViewById(R.id.editTextUsername);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        editTextLocation = (EditText) findViewById(R.id.editTextLocation);
         radioGroupGender = (RadioGroup) findViewById(R.id.radioGender);
 
 
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
     private void registerUser() {
         final String username = editTextUsername.getText().toString().trim();
         final String email = editTextEmail.getText().toString().trim();
+        final String location = editTextLocation.getText().toString().trim();
         final String password = editTextPassword.getText().toString().trim();
 
         final String gender = ((RadioButton) findViewById(radioGroupGender.getCheckedRadioButtonId())).getText().toString();
@@ -99,6 +101,12 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        if (TextUtils.isEmpty(location)) {
+            editTextLocation.setError("Enter your Location");
+            editTextLocation.requestFocus();
+            return;
+        }
+
 
         //if it passes all the validations
 
@@ -117,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 params.put("email", email);
                 params.put("password", password);
                 params.put("gender", gender);
+                params.put("location", location);
 
                 //returing the response
                 return requestHandler.sendPostRequest(URLs.URL_REGISTER, params);
@@ -156,7 +165,8 @@ public class MainActivity extends AppCompatActivity {
                                 userJson.getString("username"),
                                 userJson.getString("email"),
                                 userJson.getString("gender"),
-                                userJson.getString("category")
+                                userJson.getString("category"),
+                                userJson.getString("location")
                         );
 
                         //storing the user in shared preferences
