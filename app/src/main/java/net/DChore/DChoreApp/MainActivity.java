@@ -125,7 +125,11 @@ public class MainActivity extends AppCompatActivity {
                 params.put("email", email);
                 params.put("password", password);
                 params.put("gender", gender);
+                params.put("category", "user");
                 params.put("location", location);
+
+                Log.d("TEST", "username: " + username + " email " + email + " password " + password + "gender" + gender + "location" + location );
+
 
                 //returing the response
                 return requestHandler.sendPostRequest(URLs.URL_REGISTER, params);
