@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -24,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
     EditText editTextUsername, editTextEmail, editTextPassword;
     RadioGroup radioGroupGender;
-    Spinner categorySelector;
-
             
 
 
@@ -46,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         radioGroupGender = (RadioGroup) findViewById(R.id.radioGender);
-        categorySelector = findViewById(R.id.categorySelector);
 
 
         findViewById(R.id.buttonRegister).setOnClickListener(new View.OnClickListener() {
@@ -74,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         final String username = editTextUsername.getText().toString().trim();
         final String email = editTextEmail.getText().toString().trim();
         final String password = editTextPassword.getText().toString().trim();
-        final String category = categorySelector.getSelectedItem().toString();
 
         final String gender = ((RadioButton) findViewById(radioGroupGender.getCheckedRadioButtonId())).getText().toString();
 
@@ -104,11 +99,6 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        if (TextUtils.isEmpty(category)) {
-            editTextPassword.setError("Please select a category!");
-            editTextPassword.requestFocus();
-            return;
-        }
 
         //if it passes all the validations
 
@@ -127,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
                 params.put("email", email);
                 params.put("password", password);
                 params.put("gender", gender);
-                params.put("category", category);
 
                 //returing the response
                 return requestHandler.sendPostRequest(URLs.URL_REGISTER, params);

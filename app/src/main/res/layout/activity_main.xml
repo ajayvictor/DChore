@@ -43,16 +43,6 @@
             android:hint="Password"
             android:inputType="textPassword" />
 
-        <Spinner
-            android:id="@+id/categorySelector"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown"
-            android:entries="@array/spinnerItems"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            />
-
         <RadioGroup
             android:id="@+id/radioGender"
             android:layout_width="match_parent"
