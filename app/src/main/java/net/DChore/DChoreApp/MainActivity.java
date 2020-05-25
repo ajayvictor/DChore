@@ -21,7 +21,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText editTextUsername, editTextEmail, editTextPassword, editTextLocation;
+    EditText editTextUsername, editTextEmail, editTextPassword, editTextLocation, editTextName;
     RadioGroup radioGroupGender;
             
 
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         editTextUsername = (EditText) findViewById(R.id.editTextUsername);
+        editTextName = (EditText) findViewById(R.id.editTextName);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         editTextLocation = (EditText) findViewById(R.id.editTextLocation);
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void registerUser() {
         final String username = editTextUsername.getText().toString().trim();
+        final String name = editTextName.getText().toString().trim();
         final String email = editTextEmail.getText().toString().trim();
         final String location = editTextLocation.getText().toString().trim();
         final String password = editTextPassword.getText().toString().trim();
@@ -80,6 +82,12 @@ public class MainActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(username)) {
             editTextUsername.setError("Please enter your mobile number");
             editTextUsername.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(name)) {
+            editTextName.setError("Please enter your Name");
+            editTextName.requestFocus();
             return;
         }
 
@@ -122,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 //creating request parameters
                 HashMap<String, String> params = new HashMap<>();
                 params.put("username", username);
+                params.put("name", name);
                 params.put("email", email);
                 params.put("password", password);
                 params.put("gender", gender);
@@ -165,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //creating a new user object
                         User user = new User(
-                                userJson.getInt("id"),
+                                userJson.getString("name"),
                                 userJson.getString("username"),
                                 userJson.getString("email"),
                                 userJson.getString("gender"),

@@ -80,11 +80,11 @@ public class BookedCustomAdapter extends RecyclerView.Adapter<BookedCustomAdapte
 
 
         textViewName.setText(dataSet.get(listPosition).getName());
-        textViewJob.setText(dataSet.get(listPosition).getJob());
-        textViewAge.setText(String.valueOf(dataSet.get(listPosition).getAge()));
-        textViewPlace.setText(dataSet.get(listPosition).getPlace());
-        textViewExperience.setText(dataSet.get(listPosition).getExperience().toString());
-        textViewMobile.setText(String.valueOf(dataSet.get(listPosition).getMobile()));
+        textViewJob.setText("Job: " + dataSet.get(listPosition).getJob());
+        textViewAge.setText("Age: " + String.valueOf(dataSet.get(listPosition).getAge()));
+        textViewPlace.setText("Place: " + dataSet.get(listPosition).getPlace());
+        textViewExperience.setText("Experience: " + dataSet.get(listPosition).getExperience().toString());
+        textViewMobile.setText("Mobile: " + String.valueOf(dataSet.get(listPosition).getMobile()));
         btn_date.setText(String.valueOf(dataSet.get(listPosition).getDate()));
         btn_time.setText(String.valueOf(dataSet.get(listPosition).getTime()));
 

@@ -206,11 +206,22 @@ public class ProfileActivity extends AppCompatActivity {
                     = recyclerView.findViewHolderForPosition(selectedItemPosition);
             TextView textViewName
                     = (TextView) viewHolder.itemView.findViewById(R.id.textViewName);
+            TextView textViewMobile
+                    = (TextView) viewHolder.itemView.findViewById(R.id.textViewMobile);
             String selectedName = (String) textViewName.getText();
+            final String selectedUsername = (String) textViewName.getText();
+            final String selectedMobile = (String) textViewMobile.getText();
+
+
+
+            Log.d("Time","Time and Date" + time + date);
+
+            if(time != null && date != null)
+            {
 
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this.context);
-            builder.setTitle("Confirm dialog demo !");
+            builder.setTitle("Confirm Worker!");
             builder.setMessage("You are about to book this worker named as " + selectedName + ", Do you want to confirm?");
             builder.setCancelable(false);
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -272,6 +283,9 @@ public class ProfileActivity extends AppCompatActivity {
                             //creating request parameters
                             HashMap<String, String> params = new HashMap<>();
                             params.put("username", username);
+                            params.put("worker_mobile", selectedMobile);
+                            params.put("date", date);
+                            params.put("time", time);
                             System.out.println("Execution Happening");
 
                             //returing the response
@@ -294,6 +308,13 @@ public class ProfileActivity extends AppCompatActivity {
 
             Log.d("number", String.valueOf(selectedName) + ", Name: " +selectedName + "Date: " + date + "Time: " + time);
         }
+            else
+            {
+                Toast.makeText(context.getApplicationContext(), "Please select both date and time!!", Toast.LENGTH_SHORT).show();
+
+            }
+        }
+
 
 
 
