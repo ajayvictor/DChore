@@ -24,6 +24,7 @@ public class BookedCustomAdapter extends RecyclerView.Adapter<BookedCustomAdapte
         TextView textViewPlace;
         TextView textViewExperience;
         TextView textViewMobile;
+        TextView textViewstatus;
 
         Button btn_date, btn_time;
 
@@ -36,6 +37,7 @@ public class BookedCustomAdapter extends RecyclerView.Adapter<BookedCustomAdapte
             this.textViewPlace = (TextView) itemView.findViewById(R.id.textViewPlace);
             this.textViewExperience = (TextView) itemView.findViewById(R.id.textViewExperience);
             this.textViewMobile = (TextView) itemView.findViewById(R.id.textViewMobile);
+            this.textViewstatus = (TextView) itemView.findViewById(R.id.textViewstatus);
 
             this.btn_date=(Button) itemView.findViewById(R.id.date_btn);
 
@@ -75,6 +77,7 @@ public class BookedCustomAdapter extends RecyclerView.Adapter<BookedCustomAdapte
         TextView textViewPlace = holder.textViewPlace;
         TextView textViewExperience = holder.textViewExperience;
         TextView textViewMobile = holder.textViewMobile;
+        TextView textViewstatus = holder.textViewstatus;
         Button btn_date = holder.btn_date;
         Button btn_time = holder.btn_time;
 
@@ -85,6 +88,7 @@ public class BookedCustomAdapter extends RecyclerView.Adapter<BookedCustomAdapte
         textViewPlace.setText("Place: " + dataSet.get(listPosition).getPlace());
         textViewExperience.setText("Experience: " + dataSet.get(listPosition).getExperience().toString());
         textViewMobile.setText("Mobile: " + String.valueOf(dataSet.get(listPosition).getMobile()));
+        textViewstatus.setText("Status: " + String.valueOf(dataSet.get(listPosition).getStatus()));
         btn_date.setText(String.valueOf(dataSet.get(listPosition).getDate()));
         btn_time.setText(String.valueOf(dataSet.get(listPosition).getTime()));
 

@@ -28,6 +28,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         TextView textViewPlace;
         TextView textViewExperience;
         TextView textViewMobile;
+        TextView textViewstatus;
 
 
         public MyViewHolder(final View itemView) {
@@ -38,6 +39,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             this.textViewPlace = (TextView) itemView.findViewById(R.id.textViewPlace);
             this.textViewExperience = (TextView) itemView.findViewById(R.id.textViewExperience);
             this.textViewMobile = (TextView) itemView.findViewById(R.id.textViewMobile);
+            this.textViewstatus = (TextView) itemView.findViewById(R.id.textViewstatus);
 
             final Button btn_date=(Button) itemView.findViewById(R.id.date_btn);
 
@@ -154,6 +156,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         TextView textViewPlace = holder.textViewPlace;
         TextView textViewExperience = holder.textViewExperience;
         TextView textViewMobile = holder.textViewMobile;
+        TextView textViewstatus = holder.textViewstatus;
 
         textViewName.setText(dataSet.get(listPosition).getName());
         textViewJob.setText("Job: " + dataSet.get(listPosition).getJob());
@@ -161,6 +164,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         textViewPlace.setText("Place: " + dataSet.get(listPosition).getPlace());
         textViewExperience.setText("Experience: " + dataSet.get(listPosition).getExperience().toString());
         textViewMobile.setText("Mobile: " + String.valueOf(dataSet.get(listPosition).getMobile()));
+        textViewstatus.setVisibility(View.INVISIBLE);
+
     }
 
     @Override

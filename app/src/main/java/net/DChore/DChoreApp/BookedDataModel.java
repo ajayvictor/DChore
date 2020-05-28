@@ -12,8 +12,9 @@ public class BookedDataModel {
     double experience;
     String date;
     String time;
+    String status;
 
-    public BookedDataModel(String name, String job, int age, String place, int mobile, double experience, String date, String time) {
+    public BookedDataModel(String name, String job, int age, String place, int mobile, double experience, String date, String time, String status) {
         this.name = name;
         this.job = job;
         this.age = age;
@@ -22,6 +23,7 @@ public class BookedDataModel {
         this.experience=experience;
         this.date=date;
         this.time=time;
+        this.status=status;
     }
 
 
@@ -61,5 +63,10 @@ public class BookedDataModel {
     public String getTime() {
         return time;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
 
 }

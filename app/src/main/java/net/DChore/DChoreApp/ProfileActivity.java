@@ -144,12 +144,12 @@ public class ProfileActivity extends AppCompatActivity {
 
 
                         } else {
-                            Log.d("Status Message","Error Occured");
+                            Log.d("Status Message",obj.getString("status_message"));
 
                             //Toast.makeText(context.getApplicationContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
                         }
                     } catch (JSONException e) {
-                        Toast.makeText(getApplicationContext(), "Error Occured while connecting to the server", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Error occurred while connecting to the server", Toast.LENGTH_SHORT).show();
 
                         e.printStackTrace();
                     }
@@ -263,14 +263,13 @@ public class ProfileActivity extends AppCompatActivity {
 
 
                                 } else {
-                                    Log.d("Status Message","Error Occured with error message: " + s);
-                                    Toast.makeText(context.getApplicationContext(), "Error Occured with error message: " + s, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context.getApplicationContext(), obj.getString("status_message"), Toast.LENGTH_SHORT).show();
 
 
                                     //Toast.makeText(context.getApplicationContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {
-                                Toast.makeText(context.getApplicationContext(), "Error Occured while connecting to the server", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context.getApplicationContext(), "Error occurred while connecting to the server", Toast.LENGTH_SHORT).show();
                                 e.printStackTrace();
                             }
                         }
@@ -417,7 +416,8 @@ public class ProfileActivity extends AppCompatActivity {
                                     first.getInt("mobile"),
                                     first.getDouble("experience"),
                                     first.getString("date"),
-                                    first.getString("time")
+                                    first.getString("time"),
+                                    first.getString("status")
                             ));
                         }
 
@@ -431,12 +431,12 @@ public class ProfileActivity extends AppCompatActivity {
 
 
                     } else {
-                        Log.d("Status Message","Error Occured");
+                        Log.d("Status Message","Error occurred");
 
-                        //Toast.makeText(context.getApplicationContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), obj.getString("status_message"), Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
-                    Toast.makeText(getApplicationContext(), "Error Occured while connecting to the server", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Error occurred while connecting to the server", Toast.LENGTH_SHORT).show();
 
                     e.printStackTrace();
                 }
