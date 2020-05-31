@@ -164,6 +164,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         textViewPlace.setText("Place: " + dataSet.get(listPosition).getPlace());
         textViewExperience.setText("Experience: " + dataSet.get(listPosition).getExperience().toString());
         textViewMobile.setText("Mobile: " + String.valueOf(dataSet.get(listPosition).getMobile()));
+        Log.d("Mobile Number", String.valueOf(dataSet.get(listPosition).getMobile()));
+
         textViewstatus.setVisibility(View.INVISIBLE);
 
     }

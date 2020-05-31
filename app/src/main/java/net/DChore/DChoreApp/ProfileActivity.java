@@ -119,6 +119,8 @@ public class ProfileActivity extends AppCompatActivity {
                         if (obj.getBoolean("status")) {
                             Log.d("Status Message",obj.getString("status_message"));
 
+                            Log.d("Status Message",obj.getString("workers"));
+
                             JSONArray jsonArray = new JSONArray(obj.getString("workers"));
 
                             data = new ArrayList<DataModel>();
@@ -129,7 +131,7 @@ public class ProfileActivity extends AppCompatActivity {
                                         first.getString("job"),
                                         first.getInt("age"),
                                         first.getString("place"),
-                                        first.getInt("mobile"),
+                                        first.getString("mobile"),
                                         first.getDouble("experience")
                                 ));
                             }
