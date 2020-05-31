@@ -8,13 +8,13 @@ public class BookedDataModel {
     String job;
     String place;
     int age;
-    int mobile;
+    String mobile;
     double experience;
     String date;
     String time;
     String status;
 
-    public BookedDataModel(String name, String job, int age, String place, int mobile, double experience, String date, String time, String status) {
+    public BookedDataModel(String name, String job, int age, String place, String mobile, double experience, String date, String time, String status) {
         this.name = name;
         this.job = job;
         this.age = age;
@@ -47,7 +47,7 @@ public class BookedDataModel {
     }
 
 
-    public int getMobile() {
+    public String getMobile() {
         return mobile;
     }
 

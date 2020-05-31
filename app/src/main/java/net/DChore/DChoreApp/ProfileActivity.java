@@ -415,7 +415,7 @@ public class ProfileActivity extends AppCompatActivity {
                                     first.getString("job"),
                                     first.getInt("age"),
                                     first.getString("place"),
-                                    first.getInt("mobile"),
+                                    first.getString("mobile"),
                                     first.getDouble("experience"),
                                     first.getString("date"),
                                     first.getString("time"),
